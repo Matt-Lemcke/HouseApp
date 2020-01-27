@@ -1,0 +1,18 @@
+{% extends 'houseapp/base.html' %}
+
+{% block title %}Create House
+{% endblock %}
+{% block content %}
+
+    <form method="post" class="col-md-6">
+        <div>
+            <label for="InputHouseID">House ID</label>
+            <input class="form-control" id="InputHouseID" name="InputHouseID">
+            <small class="form-text text-muted">If a house exists the ID is under "House Settings"</small>
+        </div>
+
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+{% endblock %}

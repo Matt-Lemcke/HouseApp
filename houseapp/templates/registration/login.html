@@ -1,0 +1,20 @@
+{% extends 'houseapp/base.html' %}
+{% block title %}
+Login
+{% endblock %}
+{% block content %}
+<div class="col-md-4" style="justify-content: center">
+  <form method="post">
+    {% csrf_token %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h3 class="card-title">Login</h3>
+        <p class="card-text">{{ form.as_p }}</p>
+        <button class="btn btn-primary btn-sm" type="submit">Login</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

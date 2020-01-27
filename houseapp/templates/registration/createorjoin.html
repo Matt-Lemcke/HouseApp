@@ -1,0 +1,19 @@
+{% extends 'houseapp/base.html' %}
+
+{% block title %}House
+{% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="text-align: center">
+        <div>
+            <h1>Select an option</h1>
+        </div>
+        <div>
+            <a class="btn btn-primary" href="{% url 'house-join' %}">Join House</a>
+            <a class="btn btn-primary" href="{% url 'house-create' %}">Create House</a>
+        </div>
+    </div>
+{% endblock %} 

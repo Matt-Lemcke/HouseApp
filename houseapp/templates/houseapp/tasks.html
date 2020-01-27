@@ -1,0 +1,34 @@
+{% extends "houseapp/base.html" %} {% block content %}
+<article class="media content-section">
+  <div class="col-md-8">
+    <div>
+      <h1>Tasks
+        <a class="btn btn-secondary btn-sm" style="float: right;margin-top:20px" href="{%url 'task-create'%}">+Task</a>
+      </h1>
+
+    </div>
+    <ul class="list-group">
+      {% for task in tasks %}
+      <li class="list-group-item">
+        {{task.title}}
+        <a class="btn btn-outline-danger" style="float: right;margin-left:10px"
+          href="{% url 'task-delete' task.id%}">Remove</a>
+        {%endfor%}
+    </ul>
+  </div>
+</article>
+<article class=" media content-section">
+  <div class="col-md-8">
+    <div>
+      <h1>Notifications</h1>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        Task 1
+        <a class="btn btn-outline-danger" style="float: right;margin-left:10px" href="#">Remove</a>
+        <a class="btn btn-outline-primary" style="float: right" href="#">Edit</a>
+      </li>
+    </ul>
+  </div>
+</article>
+{% endblock content %}

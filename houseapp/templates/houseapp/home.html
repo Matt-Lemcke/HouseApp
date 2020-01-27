@@ -1,0 +1,99 @@
+{% extends "houseapp/base.html" %}
+{% block content %}
+    <main role="main" class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="content-section" style="background-color: transparent">
+                    <div class="column">
+                        <div>
+                            <h2>Tasks
+                                <a class="btn btn-outline-primary" style="float: right;"
+                                   href="{% url 'tasks' %}">Edit</a>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table class="table table-borderless">
+                            <thead>
+                            <tr>
+                                <th scope="col">Member</th>
+                                <th scope="col">Due</th>
+                                <th scope="col">Task</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for task in tasks %}
+                                <tr>
+                                    <td class="mr-2">{{ task.user }}</td>
+
+                                    <td class="text-muted">{{ task.due_date|date:"F d, Y" }}</td>
+                                    <td>{{ task.title }}</td>
+                                    {% if task.completed %}
+                                        <td>✔</td>
+                                    {% else %}
+                                        <td><a href="{% url 'task-complete' task.id %}">❌</a></td>
+                                    {% endif %}
+
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="content-section" style="background-color: transparent">
+                    <div class="column">
+                        <div>
+                            <h2>Notifications
+                                <a class="btn btn-outline-primary" style="float: right" href="{% url 'calendar' %}">Calender</a>
+                            </h2>
+                        </div>
+                        <div>
+                            <ul class="list-group">
+                                <li class="list-group-item" style="background-color: transparent">Pay rent:      5 Day(s)</li>
+                                <li class="list-group-item" style="background-color: transparent">Garbage Day :       1 Day(s)</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="content-section" style="background-color: transparent">
+                    <h3>Messages</h3>
+
+                    <ul class="list-group">
+                        {% for message in messages %}
+                            <li>
+                                <p>{{ message.content }}</p>
+                                <p style="color: #b00501">{{ message.author }}
+                                    - {{ message.timestamp|date:"F d | g:ia" }}</p>
+                            </li>
+                        {% endfor %}
+
+                        <form method="post">
+                            <div class="input-group">
+                                <textarea class="form-control" aria-label="message" name="message-text"></textarea>
+                                <div class="input-group-prepend">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-dark">SEND</button>
+                                </div>
+                            </div>
+                        </form>
+
+                </div>
+                </ul>
+            </div>
+        </div>
+        </div>
+
+    </main>
+{% endblock content %}
