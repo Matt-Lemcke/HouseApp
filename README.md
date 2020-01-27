@@ -12,10 +12,10 @@ We learned about software development using django and dealing with a postgresql
 ## What's next
 We want to continue to add a more efficient method to insert calendars. We have a few ideas on how to merge schedules and display different class times for each person in the house using google calendars. Other ideas included auto email notifications for chore deadlines, chore rotation for specified weekly tasks and a way to keep track of total house productivity. This would help develop the productivity side of our application to an even higher level
 ## Built with
-..*Python
-..*Django
-..*HTML
-..*Bootstrap
-..*CSS
-..*Postgresql
-..*gcp
+..* Python
+..* Django
+..* HTML
+..* Bootstrap
+..* CSS
+..* Postgresql
+..* gcp
